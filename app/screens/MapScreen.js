@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { View, Text, Button, DrawerButton, Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
 import DetailsScreen from './DetailsScreen';
 
@@ -36,10 +36,13 @@ function MapScreen({navigation}) {
         }}
         title={location.title}
         description={location.description}
-        />
+        onPress={() => navigation.push("Details", {item: location})}
+        >
+        </Marker>
       )}
       </MapView>
   );
+
 
     return (
       <View style={{ flex: 1 , borderTopWidth: 1, borderBottomWidth: 1, borderColor: "black"}}>
