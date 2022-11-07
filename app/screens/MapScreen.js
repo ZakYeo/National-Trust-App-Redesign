@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, Button, DrawerButton, Image } from 'react-native';
+import { View, Text, Button, DrawerButton, Image, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
@@ -18,7 +18,7 @@ function MapScreen({navigation}) {
     <MapView
          style={{ flex: 1 }}
          provider={PROVIDER_GOOGLE}
-         showsUserLocation
+         showsUserLocation={true}
          initialRegion={{
           latitude: 50.721680,
           longitude: -1.878530,
@@ -36,16 +36,24 @@ function MapScreen({navigation}) {
         }}
         title={location.title}
         description={location.description}
-        onPress={() => navigation.push("Details", {item: location})}
-        >
+        > 
+          <MapView.Callout onPress={_ => {
+                navigation.navigate("Details", {item: location});
+              }}>
+              <View style={{    borderWidth: 1,borderColor: 'black'}}>
+                <Text style={styles.title}>{location.title}</Text>
+                <Text style={styles.description}>{location.description}</Text>
+                
+              </View>
+                <Text style={styles.clickme}>Press For More Details!</Text>
+            </MapView.Callout>
         </Marker>
       )}
       </MapView>
   );
 
-
     return (
-      <View style={{ flex: 1 , borderTopWidth: 1, borderBottomWidth: 1, borderColor: "black"}}>
+      <View style={styles.container}>
         {mapview}
       </View>
     );
@@ -64,9 +72,33 @@ function MapStackScreen() {
         ),
       })}
       />
-      <MapStack.Screen name="Details" component={DetailsScreen} />
+      <MapStack.Screen name="Details" component={DetailsScreen} 
+      options={({ route }) => ({ title: route.params.item.title })}/>
     </MapStack.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1 , 
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: "black"
+  },
+  title: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline'
+  },
+  description: {
+    textAlign: 'center', 
+    maxWidth: 280
+  },
+  clickme: {
+    fontSize: 10,
+    textAlign: 'center',
+    fontStyle: 'italic',
+  }
+});
 
 export default MapStackScreen;
