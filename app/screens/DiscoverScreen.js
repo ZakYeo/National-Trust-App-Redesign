@@ -6,69 +6,36 @@ import DetailsScreen from './DetailsScreen';
 
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
-const DATA = [
-  {
-    title: "Brownsea Island",
-    subTitle: "Exmouth, Devon" ,
-    img: "https://nt.global.ssl.fastly.net/images/1431924656837-crookhallgardensoctober20222katedevlinoraclewebresized.jpg"
-  },
-  {
-    title: "Location 2",
-    subTitle: "Exmouth, Devon",
-    img: "https://nt.global.ssl.fastly.net/images/1431923554159-castlefieldviaduct.jpg" 
-  },
-  {
-    title: "Location 3",
-    subTitle: "Exmouth, Devon" ,
-    img: "https://nt.global.ssl.fastly.net/images/1431918431507-shtowermillseverntrent.jpg"
-  },
-  {
-    title: "Location 4",
-    subTitle: "Exmouth, Devon" 
-    ,img: "https://nt.global.ssl.fastly.net/images/1431782871786-dsc0421.jpg"
-  },{
-    title: "Location 5",
-    subTitle: "Exmouth, Devon" 
-    ,img: "https://nt.global.ssl.fastly.net/images/1431924656837-crookhallgardensoctober20222katedevlinoraclewebresized.jpg"
-  },
-  {
-    title: "Location 6",
-    subTitle: "Exmouth, Devon" 
-    ,img: "https://nt.global.ssl.fastly.net/images/1431924656837-crookhallgardensoctober20222katedevlinoraclewebresized.jpg"
-  },
-  {
-    title: "Location 7",
-    subTitle: "Exmouth, Devon" 
-    ,img: "https://nt.global.ssl.fastly.net/images/1431924656837-crookhallgardensoctober20222katedevlinoraclewebresized.jpg"
-  }
-];
+import myData from '../assets/all-places.json';
 
-const Item = ({ title, subTitle, img }) => (
+const Item = ({ title, subTitle, img, description }) => (
   <View style={styles.item}>
     <View style={{flex: 1}}>
-      <Image style={{width: 130, height: 100}} source={{ uri: img }} />
+      <Image style={{width: '100%', height: 150}} source={{ uri: img }} />
     </View>
     <View style={{flex: 1}}>
       <Text style={styles.title}>{title}</Text>
-      <Text>{subTitle}</Text>
+      <Text style={styles.subTitle}>{subTitle}</Text>
     </View>
     
   </View>
 );
 
 function DiscoverScreen( {navigation} ) {
+  const data = Object.values(myData);
   const renderItem = ({ item }) => (
     <Pressable onPress={() => {
-      navigation.push("DiscoverDetails", {title: item.title})
+      navigation.push("DiscoverDetails", {item: item})
     }}>
-      <Item title={item.title} subTitle={item.subTitle} img={item.img} />
+      <Item title={item.title} subTitle={item.subTitle}
+        img={item.imageUrl} description={item.description}/>
     </Pressable>
   );
 
     return (
         <SafeAreaView style={styles.container}>
           <FlatList
-        data={DATA}
+        data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
@@ -90,7 +57,7 @@ function DiscoverStackScreen() {
         headerStyle: {backgroundColor: "white"}})}
          />
       <DiscoverStack.Screen name="DiscoverDetails" component={DetailsScreen} 
-        options={({ route }) => ({ title: route.params.title })}/>
+        options={({ route }) => ({ title: route.params.item.title })}/>
     </DiscoverStack.Navigator>
   );
 }
@@ -108,7 +75,7 @@ const styles = StyleSheet.create({
     padding: 5,
     marginVertical: 5,
     marginHorizontal: 8,
-    flexDirection: 'row',
+    flexDirection: 'column',
     borderWidth: 1,
   },
   header: {
@@ -116,7 +83,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   title: {
-    fontSize: 24
+    fontSize: 24,
+    paddingLeft: 0,
+  },
+  subTitle: {
+    fontSize: 12,
+    paddingLeft: 3
+  },
+  description: {
+    fontSize: 15,
+    paddingLeft: 3
   }
 });
 
