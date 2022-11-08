@@ -11,7 +11,7 @@ import myData from '../assets/all-places.json';
 const Item = ({ title, subTitle, img, description }) => (
   <View style={styles.item}>
     <View style={{flex: 1}}>
-      <Image style={{width: '100%', height: 150}} source={{ uri: img }} />
+      <Image style={{width: '100%', height: 150, borderRadius: 4}} source={{ uri: img }} />
     </View>
     <View style={{flex: 1}}>
       <Text style={styles.title}>{title}</Text>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     flexDirection: 'column',
     borderWidth: 1,
+    borderRadius: 4
   },
   header: {
     fontSize: 32,
@@ -85,10 +86,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     paddingLeft: 0,
+    
   },
   subTitle: {
     fontSize: 12,
-    paddingLeft: 3
+    paddingLeft: 3,
   },
   description: {
     fontSize: 15,
