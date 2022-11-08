@@ -15,7 +15,7 @@ function DetailsScreen( {route} ) {
 
     var mapview = (
       <MapView
-         style={{ flex: 2, minHeight: 150, height: '100%'}}
+         style={{ flex: 2, minHeight: 130, height: '100%'}}
          provider={PROVIDER_GOOGLE}
          showsUserLocation={true}
          liteMode={true}
