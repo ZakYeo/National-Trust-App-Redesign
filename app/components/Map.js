@@ -25,12 +25,28 @@ function Map({data,initialRegion, mapStyle, liteMode, navigation}){
             <MapView.Callout onPress={_ => {
                     navigation.navigate("Details", {item: location});
                 }}>
-                <View style={{    borderWidth: 1,borderColor: 'black'}}>
-                    <Text style={styles.title}>{location.title}</Text>
-                    <Text style={styles.description}>{location.description}</Text>
-                    
+                <View style={{flex: 1, flexDirection: 'row', minHeight: 75}}>
+                  <View>
+                    <View style={{
+                      width: 75,
+                      height: 75,
+                      borderRadius: 100,
+                      backgroundColor: "black",
+                      paddingRight: 10
+                    }} />
+                  </View>
+                  <View style={{maxWidth: 240, marginLeft: 5}}>
+
+                    <Text numberOfLines={1} style={styles.title}>{location.title}</Text>
+                    <Text style={styles.subTitle}>{location.subTitle}</Text>
+                    <View style={{
+                      width: 75,
+                      height: 5,
+                      backgroundColor: "green",
+                    }} />
+                    <Text numberOfLines={2} style={styles.description}>{location.description}</Text>
+                  </View>
                 </View>
-                    <Text style={styles.clickme}>Press For More Details!</Text>
                 </MapView.Callout>
             </Marker>
         )}
@@ -46,13 +62,23 @@ const styles = StyleSheet.create({
       borderColor: "black"
     },
     title: {
-      textAlign: 'center',
-      fontWeight: 'bold',
-      textDecorationLine: 'underline'
+      fontSize: 20,
+      paddingLeft: 0,
+      color: "black",
+      fontWeight: '475'
+    },
+    subTitle: {
+      fontSize: 13,
+      color: "black",
+      fontStyle: 'italic',
+      paddingLeft: 3,
+      fontWeight: '300',
+      paddingBottom: 5
     },
     description: {
-      textAlign: 'center', 
-      maxWidth: 280
+      maxWidth: 200,
+      marginTop: 5,
+      marginBottom: 5
     },
     clickme: {
       fontSize: 10,
