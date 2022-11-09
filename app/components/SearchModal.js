@@ -8,6 +8,8 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
     const [text, onChangeText] = React.useState("");
 
     React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
+
+    var empty = "";
     return (
         <Modal
         animationType="slide"
@@ -24,7 +26,6 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
             autoFocus={true}
             placeholder="Enter Your Search Here"
             onChangeText={(text) => {
-
                 onChangeText(text);
                 setData(applyFilter({data, text}));
             }}
@@ -43,6 +44,9 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
+                
+                onChangeText(empty);
+                setData(applyFilter({data, empty}))
                 setModalVisible(!modalVisible);}
             }
             >
@@ -55,15 +59,12 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
 }
 
 function applyFilter({data, text}){
-    console.log("Applying filter");
-    console.log(text);
     if(text === undefined){
         return data;
     }
-    const v = data.filter(function(location) {
+    return data.filter(function(location) {
         return location.title.toLowerCase().startsWith(text.toLowerCase());
     });
-    return v;
 }
 
 const styles = StyleSheet.create({
