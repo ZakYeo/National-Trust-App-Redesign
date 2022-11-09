@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, SafeAreaView, FlatList, Image } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, SafeAreaView, FlatList, Image, Text, Modal, Pressable, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import DetailsScreen from './DetailsScreen';
@@ -10,13 +10,14 @@ import RenderItem from '../components/Item.js'
 
 import colours from '../config/colours';
 
+import SearchModal from '../components/SearchModal';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-function DiscoverScreen( {navigation} ) {
-  const data = Object.values(myData);
-
+function DiscoverScreen( {navigation, data} ) {
     return (
         <SafeAreaView style={styles.container}>
+          
           <FlatList
         data={data}
         renderItem={({ item, _, __ }) => (
@@ -31,14 +32,28 @@ function DiscoverScreen( {navigation} ) {
 const DiscoverStack = createNativeStackNavigator();
 
 function DiscoverStackScreen() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [data, setData] = useState(Object.values(myData));
   return (
     <DiscoverStack.Navigator>
-      <DiscoverStack.Screen name="Discover" component={DiscoverScreen}
+      <DiscoverStack.Screen name="Discover" component={({navigation}) => (
+        <DiscoverScreen navigation={navigation} data={data}></DiscoverScreen>
+      )}
       options={({ navigation }) => ({
         title: "Discover",
         headerLeft: () => (
           <Image style={styles.img} 
             source={require("../assets/national_trust_screen_logo_black_no_text.png")} />
+        ),
+        headerRight: () => (
+          <View>
+            <SearchModal data={Object.values(myData)} setData={setData} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+          <Pressable onPress={() => {
+            setModalVisible(true);
+          }}>
+          <Ionicons color="black" size={20} name="search-sharp" />
+          </Pressable>
+          </View>
         ),
         headerStyle: {backgroundColor: colours.primaryCol}})}
          />
