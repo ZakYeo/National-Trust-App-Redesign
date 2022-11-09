@@ -5,8 +5,6 @@ import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
 import DetailsScreen from './DetailsScreen';
 
-import tabBarColor from '../config/constants.js';
-
 import myData from '../assets/all-places.json';
 
 import Map from '../components/Map.js'
@@ -42,7 +40,8 @@ function MapStackScreen() {
       })}
       />
       <MapStack.Screen name="Details" component={DetailsScreen} 
-      options={({ route }) => ({ title: route.params.item.title })}/>
+      options={({ route }) => ({ title: route.params.item.title,
+        headerStyle: {backgroundColor: colours.primaryCol} })}/>
     </MapStack.Navigator>
   );
 }

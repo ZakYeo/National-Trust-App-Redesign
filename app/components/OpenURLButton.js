@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import {Button} from 'react-native';
+import {Button, Linking} from 'react-native';
+import colours from '../config/colours';
 
 // https://reactnative.dev/docs/linking
 function OpenURLButton({ url, children }){
@@ -16,7 +17,7 @@ function OpenURLButton({ url, children }){
       }
     }, [url]);
   
-    return <Button title={children} onPress={handlePress} />;
+    return <Button color={colours.primaryCol} title={children} onPress={handlePress} />;
 };
 
 

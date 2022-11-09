@@ -21,7 +21,8 @@ function ContactButtons(){
 
 const styles = StyleSheet.create({
     button: {
-        margin: 5
+        marginTop: 5,
+        marginBottom: 5
     }
 });
 
