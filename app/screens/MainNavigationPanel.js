@@ -9,6 +9,8 @@ import DiscoverStackScreen from './DiscoverScreen';
 import WhatsOnStackScreen from './WhatsOnScreen';
 import MoreStackScreen from './MoreScreen';
 
+import colours from '../config/colours';
+
 const Tab = createBottomTabNavigator();
 
 function MainNavigationPanel(props) {
@@ -31,12 +33,12 @@ function MainNavigationPanel(props) {
             }
 
             // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return (<Ionicons name={iconName} size={size} color={color} />);
           },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: '#707070',
+          tabBarActiveTintColor: colours.tabBarActiveTintCol,
+          tabBarInactiveTintColor: colours.tertiaryCol,
           headerShown: false,
-          tabBarStyle: {backgroundColor: "white"}
+          tabBarStyle: {backgroundColor: colours.primaryCol}
         })}>
         <Tab.Screen name="Map" component={MapStackScreen} />
         <Tab.Screen name="Discover" component={DiscoverStackScreen} />
