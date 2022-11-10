@@ -139,6 +139,9 @@ function DiscoverStackScreen() {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState(Object.values(myData));
+
+  //React.useEffect(() => {setData(data.sort((a, b) => a.title < b.title))}, []); // Since auto text input focus relies on useEffect.
+  
   
   return (
     <DiscoverStack.Navigator>
@@ -151,7 +154,7 @@ function DiscoverStackScreen() {
         ),
         headerRight: () => (
           <View>
-            <SearchModal data={Object.values(myData)} setData={setData} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+            <SearchModal data={data} setData={setData} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
           <Pressable onPress={() => {
             setModalVisible(true);
           }}>
