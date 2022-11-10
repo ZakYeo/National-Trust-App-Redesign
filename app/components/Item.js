@@ -3,34 +3,31 @@ import {View, Image, Text, Pressable, StyleSheet} from 'react-native';
 
 import colours from '../config/colours';
 
-function Item({ title, subTitle, img, description }){
-  const Line = () => {
-    return <View style={styles.square} />;
+function RenderItem({ item, navigation, screenName }){
+  const Line = ({color}) => {
+    return <View style={[styles.square, {backgroundColor: color}]} />;
   };
-    return (
-        <View style={styles.item}>
+  return (
+      <View style={styles.item}>
+         <Pressable onPress={() => {
+      navigation.push(screenName, {item: item})
+    }}>
         <View style={{flex: 1}}>
-            <Image style={{width: '100%', height: 150}} source={{ uri: img }} />
+            <Image style={{width: '100%', height: 150}} source={{ uri: item.imageUrl }} />
         </View>
         <View style={{flex: 1, paddingTop: 10, paddingLeft: 10, paddingRight: 10}}>
-        <Line /> 
-            <Text numberOfLines={1} style={styles.title}>{title}</Text>
-            <Text style={styles.subTitle}>{subTitle}</Text>
-            <Text style={styles.description}>{description}</Text>
+        <Line color="green"/>
+            <Text numberOfLines={1} style={styles.title}>{item.title}</Text>
+            <Text style={styles.subTitle}>{item.subTitle}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+            <View style={{flexDirection: 'row'}}>
+              {item.openingTimeStatus ? <Text style={styles.tags}>{item.openingTimeStatus}</Text> : ""}
+              {item.events ? <Text style={styles.tags}>Event(s) Available</Text> : ""}
+            </View>
         </View>
+        </Pressable>
+        
         </View>
-    )
-}
-
-function RenderItem({ item, navigation }){
-
-  return (
-    <Pressable onPress={() => {
-      navigation.push("DiscoverDetails", {item: item})
-    }}>
-      <Item title={item.title} subTitle={item.subTitle}
-        img={item.imageUrl} description={item.description}/>
-    </Pressable>
   )
 }
 
@@ -59,13 +56,36 @@ const styles = StyleSheet.create({
       marginTop: 5,
       width: 75,
       height: 5,
-      backgroundColor: "green",
     },
   description: {
     paddingTop: 20,
-    paddingBottom: 25,
     fontWeight: '300',
-    fontSize: 15
+    fontSize: 15,
+    paddingBottom: 25
+    },
+    calendar: {
+      borderTopWidth: 1,
+      borderColor: "black",
+      marginBottom: 20
+    },
+    tags: {
+      fontWeight: '300',
+      backgroundColor: "white",
+      fontSize: 13,
+      padding: 5,
+      marginBottom: 10,
+      marginRight: 10,
+      borderRadius: 20,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 2
+        },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5
+
     }
   });
 
