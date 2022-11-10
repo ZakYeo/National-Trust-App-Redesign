@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {View, Image, Text, Pressable, StyleSheet} from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
+import * as Location from 'expo-location';
+import { getDistance } from 'geolib';
+
+import constants from '../config/constants';
+
 function Map({data,initialRegion, mapStyle, liteMode, navigation}){
+  const [deviceLocation, setDeviceLocation] = useState(null);
+
+  // https://docs.expo.dev/versions/latest/sdk/location/
+  useEffect(() => {
+    (async () => {
+      
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        return;
+      }
+
+      let deviceLocation = await Location.getCurrentPositionAsync({});
+      setDeviceLocation(deviceLocation);
+    })();
+  }, []);
+
     return (
         <MapView
             style={mapStyle}
@@ -12,6 +33,7 @@ function Map({data,initialRegion, mapStyle, liteMode, navigation}){
             animationEnabled={false}
             liteMode={liteMode}
         >
+          
             {data.map((location) =>
             <Marker
             key={location.id}
@@ -34,6 +56,9 @@ function Map({data,initialRegion, mapStyle, liteMode, navigation}){
                       backgroundColor: "black",
                       paddingRight: 10
                     }} />
+                    <Text style={[styles.distance, styles.subTitle]}>{deviceLocation ?
+                      Math.round(getDistance(deviceLocation.coords, location.location) / constants.metres_to_miles) + " miles"
+                      : ""}</Text>
                   </View>
                   <View style={{maxWidth: 240, marginLeft: 5}}>
 
@@ -73,7 +98,7 @@ const styles = StyleSheet.create({
       fontStyle: 'italic',
       paddingLeft: 3,
       fontWeight: '300',
-      paddingBottom: 5
+      maxWidth: 200,
     },
     description: {
       maxWidth: 200,
@@ -84,6 +109,9 @@ const styles = StyleSheet.create({
       fontSize: 10,
       textAlign: 'center',
       fontStyle: 'italic',
+    },
+    distance: {
+      textAlign: 'center'
     }
   });
 
