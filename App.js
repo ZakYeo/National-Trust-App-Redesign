@@ -8,6 +8,7 @@ import MapStackScreen from './app/screens/MapScreen';
 import DiscoverStackScreen from './app/screens/DiscoverScreen';
 
 import colours from './app/config/colours';
+import addDummyData from './addDummyData'
 
 export default function App() {
 
@@ -18,12 +19,9 @@ export default function App() {
     (async () => {
       try{
         fetch("https://www.nationaltrust.org.uk/search/data/all-places").then((res) => res.json())
-        .then((curData) => {
-          var newData = Object.values(curData);
-          newData[1].events = [{"name": "Guided Morning Walk", "beginDay":"2022-11-10", "beginTime": "08:00", "endTime": "11:00"},
-                              {"name": "Guided Morning Walk", "beginDay":"2022-11-10", "beginTime": "08:00", "endTime": "11:00"},
-                              {"name": "Guided Morning Walk", "beginDay":"2022-11-11", "beginTime": "08:00", "endTime": "11:00"}];
-          setData(Object.values(curData));
+        .then((jsonData) => {
+          var curData = Object.values(jsonData);
+          setData(addDummyData({curData}));
         })
       } catch(e){
         console.warn(e);
