@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Alert, StyleSheet} from 'react-native';
 import { Calendar } from 'react-native-calendars';
 
-export default function CustomCalendar({location, markedEvents}){
+import colours from '../config/colours';
+
+export default function CustomCalendar({location}){
+  const [markedEvents, setMarkedEvents] = useState(null);
+
+  useEffect(() => {
+    var markedEvents = {};
+
+      if(location.events){
+        location.events.forEach((event, index) => {
+          var dateStr = event.beginDay
+          markedEvents[dateStr] = {selected: true, marked: true, selectedColor: colours.primaryCol}
+        })
+      setMarkedEvents(markedEvents);
+  }
+  }, []);
     return (
         <Calendar style={styles.calendar} onDayPress={day => {
             var eventsPressed = "";

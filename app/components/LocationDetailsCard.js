@@ -15,7 +15,6 @@ import constants from '../config/constants';
 
 function LocationDetailsCard({ location }) {
   const [deviceLocation, setDeviceLocation] = useState(null);
-  const [markedEvents, setMarkedEvents] = useState(null);
 
   // https://docs.expo.dev/versions/latest/sdk/location/
   useEffect(() => {
@@ -28,16 +27,6 @@ function LocationDetailsCard({ location }) {
 
       let deviceLocation = await Location.getCurrentPositionAsync({});
       setDeviceLocation(deviceLocation);
-
-      var markedEvents = {};
-
-      if(location.events){
-        location.events.forEach((event, index) => {
-          var dateStr = event.beginDay
-          markedEvents[dateStr] = {selected: true, marked: true, selectedColor: colours.primaryCol}
-        })
-      setMarkedEvents(markedEvents);
-  }
     })();
   }, []);
 
@@ -70,7 +59,7 @@ function LocationDetailsCard({ location }) {
                     liteMode={true}
                     navigation={undefined} />
         <View style={styles.blueLine} />
-        <CustomCalendar location={location} markedEvents={markedEvents}/>
+        <CustomCalendar location={location}/>
         <View style={styles.blueLine} />
         <ContactButtons />
         </View>
