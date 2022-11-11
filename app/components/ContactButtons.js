@@ -5,7 +5,7 @@ import OpenURLButton from './OpenURLButton';
 
 function ContactButtons(){
     return (
-        <>
+        <View style={styles.container}>
             <View style={styles.button}>
                 <OpenURLButton url={"https://www.nationaltrust.org.uk/"}>Website</OpenURLButton>
             </View>
@@ -15,11 +15,15 @@ function ContactButtons(){
             <View style={styles.button}>
                 <OpenURLButton url={"mailto:nationaltrust@nationaltrust.org.uk"}>Mail Us</OpenURLButton>
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 5,
+        marginBottom: 1
+    },
     button: {
         marginTop: 5,
         marginBottom: 5
