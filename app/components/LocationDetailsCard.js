@@ -6,6 +6,7 @@ import colours from '../config/colours';
 
 import Map from './Map';
 import ContactButtons from './ContactButtons';
+import CustomCalendar from './CustomCalendar';
 
 import * as Location from 'expo-location';
 import { getDistance } from 'geolib';
@@ -57,17 +58,9 @@ function LocationDetailsCard({ location }) {
           </Text>
           </View>
         </View>
-        <View style={{
-                      width: 75,
-                      height: 5,
-                      backgroundColor: "green",
-                    }} />
+        <View style={styles.greenLine} />
         <Text style={styles.description}>{ location.description }</Text>
-        <View style={{
-                      width: '100%',
-                      height: 5,
-                      backgroundColor: colours.primaryCol
-                    }} />
+        <View style={styles.blueLine} />
         <Map data={Object.values({"1": location})} initialRegion={{
                     latitude: location.location.latitude,
                     longitude: location.location.longitude,
@@ -76,36 +69,9 @@ function LocationDetailsCard({ location }) {
                     mapStyle={styles.map}
                     liteMode={true}
                     navigation={undefined} />
-        <View style={{
-                      width: '100%',
-                      height: 5,
-                      backgroundColor: colours.primaryCol,
-                      marginBottom: 10
-                    }} />
-        <Calendar onDayPress={day => {
-                    var eventsPressed = "";
-                    if(location.events){
-                      location.events.forEach((event, index) => {
-                        if(event.beginDay === day.dateString){
-                          eventsPressed += `${event.name}: ${event.beginTime}-${event.endTime}\n`;
-                        }
-                      })
-                    }
-                    if(eventsPressed.length > 0){
-                      Alert.alert(
-                        `Events On ${day.dateString}`,
-                        eventsPressed);
-                    }
-                    // day {"dateString": "2022-11-10", "day": 10, "month": 11, "timestamp": 1668038400000, "year": 2022}
-                  }}
-                  markedDates={markedEvents}>
-        </Calendar>
-        <View style={{
-                      width: '100%',
-                      height: 5,
-                      backgroundColor: colours.primaryCol,
-                      marginBottom: 10
-                    }} />
+        <View style={styles.blueLine} />
+        <CustomCalendar location={location} markedEvents={markedEvents}/>
+        <View style={styles.blueLine} />
         <ContactButtons />
         </View>
     </View>
@@ -157,6 +123,16 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       fontSize: 18,
       fontWeight: '450'
+    },
+    greenLine: {
+        width: 75,
+        height: 5,
+        backgroundColor: "green",
+    },
+    blueLine: {
+      width: '100%',
+      height: 5,
+      backgroundColor: colours.primaryCol
     }
     });
 
