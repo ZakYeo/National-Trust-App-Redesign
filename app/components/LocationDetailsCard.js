@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
       fontSize: 14,
       color: "black",
       fontStyle: 'italic',
-      fontWeight: '300',
+      fontWeight: '400',
       paddingLeft: 3,
       paddingBottom: 7
       

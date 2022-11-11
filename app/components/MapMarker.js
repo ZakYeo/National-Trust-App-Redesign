@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
       color: "black",
       fontStyle: 'italic',
       paddingLeft: 3,
-      fontWeight: '300',
+      fontWeight: '400',
       maxWidth: 200,
     },
     description: {

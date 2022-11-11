@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontStyle: 'italic',
     paddingLeft: 3,
-    fontWeight: '300'
+    fontWeight: '400'
   },
   item: {
       backgroundColor: colours.tertiaryCol,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
   description: {
     paddingTop: 20,
-    fontWeight: '300',
+    fontWeight: '400',
     fontSize: 15,
     paddingBottom: 25
     },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
       marginBottom: 20
     },
     tags: {
-      fontWeight: '300',
+      fontWeight: '400',
       backgroundColor: "white",
       fontSize: 13,
       padding: 5,
