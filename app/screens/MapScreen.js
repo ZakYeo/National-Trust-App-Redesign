@@ -1,18 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import { View, Text, Button, DrawerButton, Image, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 
 import DetailsScreen from './DetailsScreen';
-
-import myData from '../assets/all-places.json';
 
 import Map from '../components/Map.js'
 
 import colours from '../config/colours';
 
-function MapScreen({navigation}) {
-  const data = Object.values(myData);
+function MapScreen({navigation, data}) {
 
     return (
       <View style={styles.container}>
@@ -25,12 +21,14 @@ function MapScreen({navigation}) {
     );
 }
 
-const MapStack = createNativeStackNavigator();
 
-function MapStackScreen() {
+
+function MapStackScreen({data}) {
+  const MapStack = createNativeStackNavigator();
+
   return (
     <MapStack.Navigator>
-      <MapStack.Screen name="MapScreen" component={MapScreen}
+      <MapStack.Screen name="MapScreen"
       options={({ navigation }) => ({
         title: "National Trust Map",
         headerLeft: () => (
@@ -38,7 +36,9 @@ function MapStackScreen() {
         ),
         headerStyle: {backgroundColor: colours.primaryCol}
       })}
-      />
+      >
+        {(props) => <MapScreen data={data} {...props}></MapScreen> }
+      </MapStack.Screen>
       <MapStack.Screen name="Details" component={DetailsScreen} 
       options={({ route }) => ({ title: route.params.item.title,
         headerStyle: {backgroundColor: colours.primaryCol} })}/>

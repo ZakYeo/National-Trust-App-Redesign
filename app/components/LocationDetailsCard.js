@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {View, Text, Image, StyleSheet, Alert} from 'react-native';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import { Calendar } from 'react-native-calendars';
 
 import colours from '../config/colours';
 
@@ -12,7 +12,7 @@ import { getDistance } from 'geolib';
 
 import constants from '../config/constants';
 
-function LocationImageAndDescription({ location }) {
+function LocationDetailsCard({ location }) {
   const [deviceLocation, setDeviceLocation] = useState(null);
   const [markedEvents, setMarkedEvents] = useState(null);
 
@@ -160,4 +160,4 @@ const styles = StyleSheet.create({
     }
     });
 
-export default LocationImageAndDescription;
+export default LocationDetailsCard;

@@ -1,14 +1,17 @@
 import React from 'react';
-import { View, StyleSheet} from 'react-native';
+import { View, StyleSheet, ScrollView} from 'react-native';
 
-import DetailsCard from '../components/DetailsCard.js';
-import colours from '../config/colours.js';
+import LocationDetailsCard from '../components/LocationDetailsCard.js';
 
 function DetailsScreen( {route} ) {
  
     return (
         <View style={styles.container}>
-          <DetailsCard item={route.params.item} />
+          <ScrollView>
+            <View>
+                <LocationDetailsCard location={route.params.item}/>
+            </View>
+        </ScrollView>
         </View>
     );
 }

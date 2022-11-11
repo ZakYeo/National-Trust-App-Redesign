@@ -3,7 +3,7 @@ import {View, Image, Text, Pressable, StyleSheet} from 'react-native';
 
 import colours from '../config/colours';
 
-function RenderItem({ item, navigation, screenName }){
+function LocationListCard({ item, navigation, screenName }){
   const Line = ({color}) => {
     return <View style={[styles.square, {backgroundColor: color}]} />;
   };
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   });
 
 
-export default RenderItem;
+export default LocationListCard;
