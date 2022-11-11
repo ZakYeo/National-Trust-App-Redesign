@@ -1,21 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, Pressable, View } from 'react-native';
 
 import myData from '../assets/all-places.json';
 import colours from '../config/colours';
 
 export default function TagFilter({data, setData}){
-    const [openTodayFilter, setOpenTodayFilter] = useState(false);
-  const [closedTodayFilter, setClosedTodayFilter] = useState(false);
-  const [partiallyOpenFilter, setPartiallyOpenFilter] = useState(false);
-  const [eventFilter, setEventFilter] = useState(false);
+  const [filter, setFilter] = useState("none");
 
-  function applyOpenTimeFilter({oData, openString}){
-    return oData.filter(function(location) {
+  function applyOpenTimeFilter({data, openString}){
+    return data.filter(function(location) {
       if(location.openingTimeStatus){
         return location.openingTimeStatus.toLowerCase() === openString;
       }
-      return false;
     });
   }
 
@@ -34,69 +30,28 @@ export default function TagFilter({data, setData}){
         flexDirection: 'row',
         margin: 5
       }}>
-        <Pressable onPress={() => {       
-          const oData = Object.values(myData);
-          const openString = "open today";   
-          if(openTodayFilter){
-            setOpenTodayFilter(false);
-            setData(oData);
+        <Pressable onPress={() => {   
+          //const openString = "open today";
+          setFilter(filter==="open" ? "" : "open");  
+          //setData(applyOpenTimeFilter({data, openString}));
             
-          }else{
-            setOpenTodayFilter(true);
-            setData(applyOpenTimeFilter({oData, openString}));
-            setEventFilter(false);
-            setClosedTodayFilter(false);
-            setPartiallyOpenFilter(false);
-          }
         }}>
-          <Text style={[styles.tags, openTodayFilter ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Open</Text>
+          <Text style={[styles.tags, filter=="open" ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Open</Text>
         </Pressable>
         <Pressable onPress={() => {   
-          const oData = Object.values(myData) 
-          const openString = "closed today";      
-          if(closedTodayFilter){
-            setClosedTodayFilter(false);
-            setData(oData);
-          }else{
-            setClosedTodayFilter(true);
-            setData(applyOpenTimeFilter({oData, openString}));
-            setOpenTodayFilter(false);
-            setEventFilter(false);
-            setPartiallyOpenFilter(false);
-          }
+          setFilter(filter==="closed" ? "" : "closed"); 
         }}>
-        <Text style={[styles.tags, closedTodayFilter ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Closed</Text>
+        <Text style={[styles.tags, filter==="closed" ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Closed</Text>
         </Pressable>
         <Pressable onPress={() => {   
-          const oData = Object.values(myData);
-          const openString = "partially open today";     
-          if(partiallyOpenFilter){
-            setPartiallyOpenFilter(false);
-            setData(oData);
-          }else{
-            setData(applyOpenTimeFilter({oData, openString}));
-            setOpenTodayFilter(false);
-            setClosedTodayFilter(false);
-            setPartiallyOpenFilter(true);
-            setEventFilter(false);
-          }
+          setFilter(filter==="partial" ? "" : "partial"); 
         }}>
-        <Text style={[styles.tags, partiallyOpenFilter ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Partially Open</Text>
+        <Text style={[styles.tags, filter==="partial" ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Partially Open</Text>
         </Pressable>
         <Pressable onPress={() => {   
-          const oData = Object.values(myData)       
-          if(eventFilter){
-            setEventFilter(false);
-            setData(oData);
-          }else{
-            setEventFilter(true);
-            setData(applyEventFilter({oData}));
-            setOpenTodayFilter(false);
-            setClosedTodayFilter(false);
-            setPartiallyOpenFilter(false);
-          }
+          setFilter(filter==="events" ? "" : "events"); 
         }}>
-        <Text style={[styles.tags, eventFilter ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Event(s)</Text>
+        <Text style={[styles.tags, filter==="events" ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Event(s)</Text>
         </Pressable>
       </View>
     );
