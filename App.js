@@ -10,6 +10,8 @@ import DiscoverStackScreen from './app/screens/DiscoverScreen';
 import colours from './app/config/colours';
 import addDummyData from './addDummyData'
 
+import localData from './app/assets/all-places.json'
+
 export default function App() {
 
   const Tab = createBottomTabNavigator();
@@ -24,6 +26,7 @@ export default function App() {
           setData(addDummyData({curData}));
         })
       } catch(e){
+        setData(Object.values(localData))
         console.warn(e);
       }
     })();
@@ -70,12 +73,9 @@ export default function App() {
 
 // KNOWN ISSUES:
 // - Display image in custom callout
+// - Filters & Search not functioning properly
 
 // TO FINISH:
 // - Check on another device
-// - Use API for places data
-// - FILTERS:
-//    - Add more event dummy data (new file and function?)
-//    - Colour tags in each item of the flat list
+// - Add more event dummy data (new file and function?)
 // - Polygon bound by geojson data on Details screen from API
-// - Global state?
