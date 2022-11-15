@@ -3,6 +3,13 @@ import {View, Image, Text, Pressable, StyleSheet} from 'react-native';
 
 import colours from '../config/colours';
 
+/**
+   * Pressable Component to represent an individual location card held inside a flat list.
+   * Contains summarised information about a specific location including:
+   * Title, location, description & tags.
+   * @param  {String} location   The specific location from the National Trust API
+   * @return                     Returns a view displaying relevant information
+   */
 function LocationListCard({ item, navigation, screenName }){
   const Line = ({color}) => {
     return <View style={[styles.square, {backgroundColor: color}]} />;

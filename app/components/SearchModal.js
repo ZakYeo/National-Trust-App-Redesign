@@ -9,7 +9,7 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
 
     React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
 
-    var empty = "";
+    let empty = "";
     return (
         <Modal
         animationType="slide"

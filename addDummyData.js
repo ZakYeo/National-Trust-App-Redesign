@@ -1,3 +1,8 @@
+/**
+   * Intended to insert dummy & placeholder information into our data.
+   * @param  {Array} curData  The array of data we're going to add to.
+   * @return {Array}          The new array with added dummy data.
+   */
 export default function addDummyData({curData}) {
     curData[1].events = [{"name": "Guided Morning Walk", "beginDay":"2022-11-10", "beginTime": "08:00", "endTime": "11:00"},
                               {"name": "Guided Evening Walk", "beginDay":"2022-11-19", "beginTime": "18:00", "endTime": "20:00"},

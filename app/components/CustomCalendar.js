@@ -4,15 +4,20 @@ import { Calendar } from 'react-native-calendars';
 
 import colours from '../config/colours';
 
+/**
+   * Component to represent a custom calendar
+   * @param  {String} location  The specific location from the National Trust API
+   * @return                    Returns a custom calendar component
+   */
 export default function CustomCalendar({location}){
   const [markedEvents, setMarkedEvents] = useState(null);
 
   useEffect(() => {
-    var markedEvents = {};
+    let markedEvents = {};
 
       if(location.events){
         location.events.forEach((event, index) => {
-          var dateStr = event.beginDay
+          let dateStr = event.beginDay
           markedEvents[dateStr] = {selected: true, marked: true, selectedColor: colours.primaryCol}
         })
       setMarkedEvents(markedEvents);
@@ -20,7 +25,7 @@ export default function CustomCalendar({location}){
   }, []);
     return (
         <Calendar style={styles.calendar} onDayPress={day => {
-            var eventsPressed = "";
+            let eventsPressed = "";
             if(location.events){
               location.events.forEach((event, index) => {
                 if(event.beginDay === day.dateString){

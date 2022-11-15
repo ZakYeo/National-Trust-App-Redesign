@@ -3,6 +3,10 @@ import {View, StyleSheet} from 'react-native';
 
 import OpenURLButton from './OpenURLButton';
 
+/**
+   * Component to represent three OpenURLButtons
+   * @return                  View container with three OpenURLButtons
+   */
 function ContactButtons(){
     return (
         <View style={styles.container}>

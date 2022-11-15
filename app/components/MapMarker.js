@@ -7,6 +7,16 @@ import { getDistance } from 'geolib';
 
 import constants from '../config/constants';
 
+
+/**
+   * Custom Callout Marker for MapView
+   * Pressable callout with summarised information about the selected marker.
+   * Press to be sent to a more detailed screen.
+   * @param  {Object} location            The specific location from the National Trust API.
+   * @param  {Object} deviceLocation      Current location details of the device [State Variable].
+   * @param  {Object} navigation          Used to navigate between screens.
+   * @return                              Returns a Marker with the custom callout
+   */
 export default function MapMarker({location, deviceLocation, navigation}) {
     return (
         <Marker
@@ -19,7 +29,7 @@ export default function MapMarker({location, deviceLocation, navigation}) {
             description={location.description}
             > 
             <MapView.Callout onPress={_ => {
-                    navigation.navigate("Details", {item: location});
+                    navigation.navigate("MapDetails", {item: location});
                 }}>
                 <View style={{flex: 1, flexDirection: 'row', minHeight: 75}}>
                   <View>

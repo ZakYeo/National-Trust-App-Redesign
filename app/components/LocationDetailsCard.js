@@ -13,6 +13,14 @@ import { getDistance } from 'geolib';
 
 import constants from '../config/constants';
 
+/**
+   * Component to display the details of a specific location.
+   * Begins with a large image with full width, and the continues to display the
+   * title, description, distance, location & calendar with related events.
+   * Also contains contact buttons (website, ring & mail)
+   * @param  {String} location   The specific location from the National Trust API
+   * @return                     Returns a view displaying relevant information
+   */
 function LocationDetailsCard({ location }) {
   const [deviceLocation, setDeviceLocation] = useState(null);
 

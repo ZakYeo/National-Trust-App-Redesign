@@ -2,7 +2,15 @@ import React, { useCallback } from 'react';
 import {Button, Linking} from 'react-native';
 import colours from '../config/colours';
 
-// https://reactnative.dev/docs/linking
+
+/**
+   * Custom button, once pressed will send to the specified URL
+   * @param  {Object} url            The URL to use for the button.
+   * @param  {Object} children       The text to display on the button.
+   * @link                           https://reactnative.dev/docs/linking
+   * @return                         Returns the custom button
+   */
+// 
 function OpenURLButton({ url, children }){
     const handlePress = useCallback(async () => {
       // Checking if the link is supported for links with custom URL scheme.

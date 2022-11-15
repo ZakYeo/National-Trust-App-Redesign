@@ -3,6 +3,12 @@ import { View, StyleSheet, ScrollView} from 'react-native';
 
 import LocationDetailsCard from '../components/LocationDetailsCard.js';
 
+
+/**
+   * Screen to show details of a specific location chosen by the user.
+   * @param  {String} route
+   * @return                  Returns a scrollable 
+   */
 function DetailsScreen( {route} ) {
  
     return (
