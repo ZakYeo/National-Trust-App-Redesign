@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Modal, Text, Pressable, TextInput} from 'react-native';
 
 import colours from '../config/colours';
+import localData from '../assets/all-places.json'
 
 
 function SearchModal({modalVisible, setModalVisible, setData, data}) {
@@ -60,9 +61,9 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
 
 function applyFilter({data, text}){
     if(text === undefined){
-        return data;
+        return Object.values(localData);
     }
-    return data.filter(function(location) {
+    return Object.values(localData).filter(function(location) {
         return location.title.toLowerCase().startsWith(text.toLowerCase());
     });
 }

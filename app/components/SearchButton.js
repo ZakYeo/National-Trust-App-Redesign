@@ -16,7 +16,7 @@ function SearchButton({data, setData}){
           <Pressable onPress={() => {
             setModalVisible(true);
           }}>
-          <Ionicons color="black" size={20} name="search-sharp" />
+          <Ionicons color="black" size={25} name="search-sharp" />
           </Pressable>
           </View>
     )

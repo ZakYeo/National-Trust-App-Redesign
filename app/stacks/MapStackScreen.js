@@ -1,17 +1,22 @@
-import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DetailsScreen from '../screens/DetailsScreen';
 import MapScreen from '../screens/MapScreen';
 import colours from '../config/colours';
+import localData from '../assets/all-places.json'
+import SearchButton from '../components/SearchButton';
 
 /**
    * Native Stack to handle the navigation on the "Map" Screen
-   * @param  {String} data        The National Trust API's location data [State Variable].
    * @return                      Returns a MapStack.Navigator component     
    */
-export default function MapStackScreen({data}) {
+export default function MapStackScreen() {
+  
+    const [data, setData] = useState(Object.values(localData)); // This will store the location information from National Trust
+  
     const MapStack = createNativeStackNavigator();
   
     return (
@@ -19,8 +24,15 @@ export default function MapStackScreen({data}) {
         <MapStack.Screen name="MapScreen"
         options={({ navigation }) => ({
           title: "National Trust Map",
+          headerTintColor: colours.tertiaryCol,
           headerLeft: () => (
             <Image style={styles.logo}source={require("../assets/national_trust_screen_logo_black_no_text.png")} />
+          ),
+          headerRight: () => (
+            <View style={{flexDirection: "row"}}>
+              <Ionicons style={{paddingRight: 20}}color="black" size={25} name="filter-sharp" />
+              <SearchButton data={data} setData={setData}></SearchButton>
+            </View>
           ),
           headerStyle: {backgroundColor: colours.primaryCol}
         })}

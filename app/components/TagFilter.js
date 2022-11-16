@@ -15,8 +15,8 @@ export default function TagFilter({data, setData}){
     });
   }
 
-  function applyEventFilter({oData}){
-    return oData.filter(function(location) {
+  function applyEventFilter({data}){
+    return data.filter(function(location) {
         return location.events;
     });
   }
@@ -34,7 +34,6 @@ export default function TagFilter({data, setData}){
           //const openString = "open today";
           setFilter(filter==="open" ? "" : "open");  
           //setData(applyOpenTimeFilter({data, openString}));
-            
         }}>
           <Text style={[styles.tags, filter=="open" ? {backgroundColor: "green"} : {backgroundColor: "white"}]}>Open</Text>
         </Pressable>

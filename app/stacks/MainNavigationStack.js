@@ -13,7 +13,7 @@ import colours from '../config/colours';
    * @param  {String} setData     Set the National Trust API's location data [State Variable].
    * @return                      Returns a Tab.Navigator component     
    */
-export default function MainNavigationStack({data, setData}){
+export default function MainNavigationStack(){
 
     const Tab = createBottomTabNavigator();
 
@@ -43,10 +43,10 @@ export default function MainNavigationStack({data, setData}){
             tabBarStyle: {backgroundColor: colours.primaryCol}
           })}>
           <Tab.Screen name="Map">
-            {(props) => <MapStackScreen data={data} setData={setData} {...props} /> }
+            {(props) => <MapStackScreen {...props} /> }
           </Tab.Screen>
           <Tab.Screen name="Discover">
-          {(props) => <DiscoverStackScreen data={data} setData={setData} {...props} /> }
+          {(props) => <DiscoverStackScreen {...props} /> }
           </Tab.Screen>
         </Tab.Navigator>
     )

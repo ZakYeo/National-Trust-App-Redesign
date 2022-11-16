@@ -12,12 +12,10 @@ import localData from './app/assets/all-places.json'
    * @author Zak Yeomanson
 */
 export default function App() {
-  const [data, setData] = useState(Object.values(localData)); // This will store the location information from National Trust
-  
   //Return the bottom tab navigation panel with our chosen icons
   return (
     <NavigationContainer>
-      <MainNavigationStack data={data} setData={setData} />
+      <MainNavigationStack/>
     </NavigationContainer>
   );
 }
@@ -27,6 +25,15 @@ export default function App() {
 // KNOWN ISSUES:
 // - Display image in custom callout
 // - Filters & Search not functioning properly (useState with data)
+
+
+//TODO
+// - Use State for map and discover (separate)
+// - Fix search
+// - Fix filters
+// - Add sort by
+// - Search on the map?
+// - MapScreen.js -> change initial region
 
 // TO FINISH:
 // - Check on another device (seems fine)
