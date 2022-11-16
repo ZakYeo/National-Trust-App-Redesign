@@ -34,7 +34,7 @@ export default function MainNavigationStack(){
 
               return (<Ionicons name={iconName} size={size} color={color} />);
             },
-            tabBarActiveTintColor: colours.tabBarActiveTintCol,
+            tabBarActiveTintColor: colours.secondaryCol,
             tabBarInactiveTintColor: colours.tertiaryCol,
             headerShown: false,
             tabBarStyle: {backgroundColor: colours.primaryCol}
