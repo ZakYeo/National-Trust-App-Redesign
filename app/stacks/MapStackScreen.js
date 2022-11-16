@@ -26,7 +26,7 @@ export default function MapStackScreen() {
           title: "National Trust Map",
           headerTintColor: colours.tertiaryCol,
           headerLeft: () => (
-            <Image style={styles.logo}source={require("../assets/national_trust_screen_logo_black_no_text.png")} />
+            <Image style={styles.logo}source={require("../assets/logo_white.png")} />
           ),
           headerRight: () => (
             <View style={{flexDirection: "row"}}>
@@ -41,7 +41,8 @@ export default function MapStackScreen() {
         </MapStack.Screen>
         <MapStack.Screen name="MapDetails" component={DetailsScreen} 
         options={({ route }) => ({ title: route.params.item.title,
-          headerStyle: {backgroundColor: colours.primaryCol} })}/>
+          headerStyle: {backgroundColor: colours.primaryCol},
+          headerTintColor: colours.tertiaryCol })}/>
       </MapStack.Navigator>
     );
   }
@@ -50,6 +51,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 30, 
     height: 30, 
-    marginRight: 25
+    marginRight: 15
   }
   });

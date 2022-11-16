@@ -33,7 +33,7 @@ function DiscoverStackScreen() {
             headerTintColor: colours.tertiaryCol,
             headerLeft: () => (
               <Image style={styles.img} 
-                source={require("../assets/national_trust_screen_logo_black_no_text.png")} />),
+                source={require("../assets/logo_white.png")} />),
             headerRight: () => (
               <View style={{flexDirection: "row"}}>
                 <Ionicons style={{paddingRight: 20}} color="black" size={25} name="filter-sharp" />
@@ -47,7 +47,8 @@ function DiscoverStackScreen() {
       <DiscoverStack.Screen name="DiscoverDetails" component={DetailsScreen} 
         options={({ route }) => ({ 
           title: route.params.item.title,
-          headerStyle: {backgroundColor: colours.primaryCol}
+          headerStyle: {backgroundColor: colours.primaryCol},
+          headerTintColor: colours.tertiaryCol 
         })}/>
     </DiscoverStack.Navigator>
   );
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   img: {
     width: 30, 
     height: 30, 
-    marginRight: 25
+    marginRight: 15
   },
   bgPrimary: {
     backgroundColor: colours.primaryCol
