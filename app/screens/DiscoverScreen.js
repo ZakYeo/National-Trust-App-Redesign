@@ -24,8 +24,6 @@ export default function DiscoverScreen( {navigation, data, setData} ) {
           <RenderItem item={item} navigation={navigation} screenName="DiscoverDetails"/>
         )}
         keyExtractor={item => item.id}
-        ListHeaderComponent={() => (<TagFilter data={data} setData={setData}/>)}
-        ListHeaderComponentStyle={{ borderBottomColor: 'black', borderBottomWidth: 1 }}
       />
         </SafeAreaView>
     );
