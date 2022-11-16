@@ -14,7 +14,27 @@
     "type": "PLACE",
     "location": { "latitude": 54.60074, "longitude": -6.041651 },
     "activityTagsAsCsv": "Dog walking, Running, Walking",
-    "displayable": true
+    "displayable": true,
+    "events": [
+      {
+        "name": "Guided Morning Walk",
+        "beginDay": "2022-11-10",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Guided Evening Walk",
+        "beginDay": "2022-11-19",
+        "beginTime": "18:00",
+        "endTime": "20:00"
+      },
+      {
+        "name": "Sponsored Walk",
+        "beginDay": "2022-11-11",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      }
+    ]
   },
   "900023": {
     "openingTimeStatus": "Open today",
@@ -30,7 +50,27 @@
     "websiteUrl": "https://www.nationaltrust.org.uk/crook-hall-gardens",
     "type": "PLACE",
     "location": { "latitude": 54.782583, "longitude": -1.575158 },
-    "displayable": true
+    "displayable": true,
+    "events": [
+      {
+        "name": "Example Event",
+        "beginDay": "2022-11-15",
+        "beginTime": "09:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 2",
+        "beginDay": "2022-11-10",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 3",
+        "beginDay": "2022-12-09",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      }
+    ]
   },
   "900022": {
     "openingTimeStatus": "Open today",
@@ -46,7 +86,27 @@
     "websiteUrl": "https://www.nationaltrust.org.uk/castlefield-viaduct",
     "type": "PLACE",
     "location": { "latitude": 53.4751776, "longitude": -2.2547594 },
-    "displayable": true
+    "displayable": true,
+    "events": [
+      {
+        "name": "Example Event",
+        "beginDay": "2022-11-15",
+        "beginTime": "09:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 2",
+        "beginDay": "2022-11-10",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 3",
+        "beginDay": "2022-12-09",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      }
+    ]
   },
   "900020": {
     "openingTimeStatus": "Open today",
@@ -63,7 +123,27 @@
     "type": "PLACE",
     "location": { "latitude": 52.81089, "longitude": -1.43062 },
     "activityTagsAsCsv": "Dog walking, Walking",
-    "displayable": true
+    "displayable": true,
+    "events": [
+      {
+        "name": "Example Event",
+        "beginDay": "2022-11-15",
+        "beginTime": "09:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 2",
+        "beginDay": "2022-11-10",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 3",
+        "beginDay": "2022-12-09",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      }
+    ]
   },
   "1": {
     "openingTimeStatus": "Open today",
@@ -80,7 +160,27 @@
     "type": "PLACE",
     "location": { "latitude": 50.641718, "longitude": -3.408798 },
     "activityTagsAsCsv": "Walking",
-    "displayable": true
+    "displayable": true,
+    "events": [
+      {
+        "name": "Example Event",
+        "beginDay": "2022-11-15",
+        "beginTime": "09:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 2",
+        "beginDay": "2022-11-10",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      },
+      {
+        "name": "Example Event 3",
+        "beginDay": "2022-12-09",
+        "beginTime": "08:00",
+        "endTime": "11:00"
+      }
+    ]
   },
   "2": {
     "openingTimeStatus": "Closed today",
