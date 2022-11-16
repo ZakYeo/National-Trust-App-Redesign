@@ -8,6 +8,7 @@ import MapScreen from '../screens/MapScreen';
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
 import SearchButton from '../components/SearchButton';
+import FilterButton from '../components/FilterButton';
 
 /**
    * Native Stack to handle the navigation on the "Map" Screen
@@ -30,9 +31,9 @@ export default function MapStackScreen() {
           ),
           headerRight: () => (
             <View style={{flexDirection: "row"}}>
-              <Ionicons style={{paddingRight: 20}}color="black" size={25} name="filter-sharp" />
-              <SearchButton data={data} setData={setData}></SearchButton>
-            </View>
+                <FilterButton     data={data} setData={setData}></FilterButton>
+                <SearchButton data={data} setData={setData}></SearchButton>
+              </View>
           ),
           headerStyle: {backgroundColor: colours.primaryCol}
         })}

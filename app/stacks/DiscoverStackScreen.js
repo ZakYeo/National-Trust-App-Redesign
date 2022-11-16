@@ -8,6 +8,8 @@ import DiscoverScreen from '../screens/DiscoverScreen'
 import SearchButton from '../components/SearchButton';
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
+import FilterModal from '../components/FilterModal';
+import FilterButton from '../components/FilterButton';
 
 /**
    * Native Stack to handle the navigation on the "Discover" Screen
@@ -36,7 +38,7 @@ function DiscoverStackScreen() {
                 source={require("../assets/logo_white.png")} />),
             headerRight: () => (
               <View style={{flexDirection: "row"}}>
-                <Ionicons style={{paddingRight: 20}} color="black" size={25} name="filter-sharp" />
+                <FilterButton     data={data} setData={setData}></FilterButton>
                 <SearchButton data={data} setData={setData}></SearchButton>
               </View>
             ),

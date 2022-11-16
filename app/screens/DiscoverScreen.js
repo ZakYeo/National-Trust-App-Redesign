@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 
 import RenderItem from '../components/LocationListCard.js'
-import TagFilter from '../components/TagFilter.js'
 import colours from '../config/colours';
 
 

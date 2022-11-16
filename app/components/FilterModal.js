@@ -1,12 +1,13 @@
 import React from 'react';
 import {View, StyleSheet, Modal, Text, Pressable, TextInput} from 'react-native';
 
+
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
 
 
-function SearchModal({modalVisible, setModalVisible, setData, data}) {
-    const [text, onChangeText] = React.useState("");
+function FilterModal({modalVisible, setModalVisible, setData, data}) {
+    const [filter, setFilter] = React.useState("");
 
     React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
 
@@ -22,36 +23,56 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          <TextInput
-            style={styles.input}
-            autoFocus={true}
-            placeholder="Enter Your Search Here"
-            onChangeText={(text) => {
-                onChangeText(text);
-                setData(applyFilter({data, text}));
-            }}
-            value={text}
-            
-            />
+            <Text style={styles.title}>Apply A Filter</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                setData(applyFilter({data, text}));
+                const filter = "Open today"
+                setData(applyFilter({data, filter}));
                 setModalVisible(!modalVisible);}
             }
             >
-              <Text style={styles.textStyle}>Search</Text>
+              <Text style={styles.textStyle}>Open Today</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                
-                onChangeText(empty);
-                setData(applyFilter({data, empty}))
+                const filter = "Partially open today"
+                setData(applyFilter({data, filter}));
                 setModalVisible(!modalVisible);}
             }
             >
-              <Text style={styles.textStyle}>Cancel</Text>
+              <Text style={styles.textStyle}>Partially Open</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                const filter = "Closed today"
+                setData(applyFilter({data, filter}));
+                setModalVisible(!modalVisible);}
+            }
+            >
+              <Text style={styles.textStyle}>Closed Today</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                const filter = "events"
+                setData(applyFilter({data, filter}));
+                setModalVisible(!modalVisible);}
+            }
+            >
+              <Text style={styles.textStyle}>Event(s)</Text>
+            </Pressable>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => {
+                const filter = ""
+                setData(applyFilter({data, filter}));
+                setModalVisible(!modalVisible);}
+            }
+            >
+              <Text style={styles.textStyle}>No Filter</Text>
             </Pressable>
           </View>
         </View>
@@ -59,12 +80,15 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
     )
 }
 
-function applyFilter({data, text}){
-    if(text === undefined){
+function applyFilter({data, filter}){
+    if(filter === ""){
         return Object.values(localData);
     }
     return Object.values(localData).filter(function(location) {
-        return location.title.toLowerCase().startsWith(text.toLowerCase());
+        if(filter === "events"){
+            return location.events
+        }
+        return location.openingTimeStatus === filter;
     });
 }
 
@@ -73,15 +97,21 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
+        marginTop: 22,
+      },
+      title: {
+        fontSize: 20,
+        paddingBottom: 10,
+        color: "black",
+        fontWeight: '450'
       },
       modalView: {
-        margin: 20,
+        margin: 50,
         backgroundColor: "white",
         borderRadius: 20,
         width: 200,
-        height: 170,
-        paddingTop: 20,
+        height: 280,
+        paddingTop: 2,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -122,4 +152,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default SearchModal;
+export default FilterModal;
