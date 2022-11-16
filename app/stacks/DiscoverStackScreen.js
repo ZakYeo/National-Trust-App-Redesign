@@ -29,7 +29,7 @@ function DiscoverStackScreen() {
     <DiscoverStack.Navigator>
       <DiscoverStack.Screen name="DiscoverScreen"
         options={({ navigation }) => ({
-            title: "Discover",
+            title: "National Trust List",
             headerTintColor: colours.tertiaryCol,
             headerLeft: () => (
               <Image style={styles.img} 
