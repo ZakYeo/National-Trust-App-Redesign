@@ -9,6 +9,7 @@ import colours from '../config/colours';
 import localData from '../assets/all-places.json'
 import SearchButton from '../components/SearchButton';
 import FilterButton from '../components/FilterButton';
+import constants from '../config/constants';
 
 /**
    * Native Stack to handle the navigation on the "Map" Screen
@@ -24,7 +25,7 @@ export default function MapStackScreen() {
       <MapStack.Navigator>
         <MapStack.Screen name="MapScreen"
         options={({ navigation }) => ({
-          title: "National Trust Map",
+          title: constants.map_title,
           headerTintColor: colours.tertiaryCol,
           headerLeft: () => (
             <Image style={styles.logo}source={require("../assets/logo_white.png")} />

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import DetailsScreen from '../screens/DetailsScreen';
 import DiscoverScreen from '../screens/DiscoverScreen'
 import SearchButton from '../components/SearchButton';
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
-import FilterModal from '../components/FilterModal';
 import FilterButton from '../components/FilterButton';
+import constants from '../config/constants';
 
 /**
    * Native Stack to handle the navigation on the "Discover" Screen
@@ -31,7 +30,7 @@ function DiscoverStackScreen() {
     <DiscoverStack.Navigator>
       <DiscoverStack.Screen name="DiscoverScreen"
         options={({ navigation }) => ({
-            title: "National Trust List",
+            title: constants.list_title,
             headerTintColor: colours.tertiaryCol,
             headerLeft: () => (
               <Image style={styles.img} 

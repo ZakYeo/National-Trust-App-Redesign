@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MapStackScreen from './MapStackScreen.js';
 import DiscoverStackScreen from './DiscoverStackScreen.js';
 import colours from '../config/colours';
+import constants from '../config/constants.js';
 
 /**
    * Handles the Bottom Tab Navigation. Includes "Map" and "Discover" options
@@ -38,10 +39,10 @@ export default function MainNavigationStack(){
             headerShown: false,
             tabBarStyle: {backgroundColor: colours.primaryCol}
           })}>
-          <Tab.Screen name="Map">
+          <Tab.Screen name={constants.nav_map}>
             {(props) => <MapStackScreen {...props} /> }
           </Tab.Screen>
-          <Tab.Screen name="List">
+          <Tab.Screen name={constants.nav_list}>
           {(props) => <DiscoverStackScreen {...props} /> }
           </Tab.Screen>
         </Tab.Navigator>

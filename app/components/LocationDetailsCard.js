@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {View, Text, Image, StyleSheet, Alert} from 'react-native';
-import { Calendar } from 'react-native-calendars';
 
 import colours from '../config/colours';
 

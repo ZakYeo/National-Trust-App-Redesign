@@ -3,6 +3,7 @@ import {Alert, StyleSheet} from 'react-native';
 import { Calendar } from 'react-native-calendars';
 
 import colours from '../config/colours';
+import constants from '../config/constants';
 
 /**
    * Component to represent a custom calendar
@@ -35,7 +36,7 @@ export default function CustomCalendar({location}){
             }
             if(eventsPressed.length > 0){
               Alert.alert(
-                `Events On ${day.dateString}`,
+                `${constants.events_on} ${day.dateString}`,
                 eventsPressed);
             }
             // day {"dateString": "2022-11-10", "day": 10, "month": 11, "timestamp": 1668038400000, "year": 2022}

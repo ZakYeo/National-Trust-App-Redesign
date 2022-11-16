@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Modal, Text, Pressable, TextInput} from 'react-native';
+import { View, StyleSheet, Modal, Text, Pressable } from 'react-native';
 
 
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
+import constants from '../config/constants';
 
 
 function FilterModal({modalVisible, setModalVisible, setData, data}) {
-    const [filter, setFilter] = React.useState("");
 
     React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
 
@@ -27,7 +27,7 @@ function FilterModal({modalVisible, setModalVisible, setData, data}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                const filter = "Open today"
+                const filter = constants.filter_opentoday
                 setData(applyFilter({data, filter}));
                 setModalVisible(!modalVisible);}
             }
@@ -37,7 +37,7 @@ function FilterModal({modalVisible, setModalVisible, setData, data}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                const filter = "Partially open today"
+                const filter = constants.filter_partialtoday
                 setData(applyFilter({data, filter}));
                 setModalVisible(!modalVisible);}
             }
@@ -47,7 +47,7 @@ function FilterModal({modalVisible, setModalVisible, setData, data}) {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => {
-                const filter = "Closed today"
+                const filter = constants.filter_closedtoday
                 setData(applyFilter({data, filter}));
                 setModalVisible(!modalVisible);}
             }

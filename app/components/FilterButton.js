@@ -1,10 +1,8 @@
 
 import React, { useState } from 'react';
-import {View, Image, Text, Pressable, StyleSheet} from 'react-native';
-
+import { View, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import colours from '../config/colours';
 import FilterModal from '../components/FilterModal';
 
 function FilterButton({data, setData}){

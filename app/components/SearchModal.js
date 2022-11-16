@@ -3,6 +3,7 @@ import {View, StyleSheet, Modal, Text, Pressable, TextInput} from 'react-native'
 
 import colours from '../config/colours';
 import localData from '../assets/all-places.json'
+import constants from '../config/constants';
 
 
 function SearchModal({modalVisible, setModalVisible, setData, data}) {
@@ -25,7 +26,7 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
           <TextInput
             style={styles.input}
             autoFocus={true}
-            placeholder="Enter Your Search Here"
+            placeholder={constants.search_placeholder}
             onChangeText={(text) => {
                 onChangeText(text);
                 setData(applyFilter({data, text}));
@@ -40,7 +41,7 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
                 setModalVisible(!modalVisible);}
             }
             >
-              <Text style={styles.textStyle}>Search</Text>
+              <Text style={styles.textStyle}>{constants.search}</Text>
             </Pressable>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -51,7 +52,7 @@ function SearchModal({modalVisible, setModalVisible, setData, data}) {
                 setModalVisible(!modalVisible);}
             }
             >
-              <Text style={styles.textStyle}>Cancel</Text>
+              <Text style={styles.textStyle}>{constants.cancel}</Text>
             </Pressable>
           </View>
         </View>
