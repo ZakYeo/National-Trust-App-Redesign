@@ -26,12 +26,8 @@ export default function MainNavigationStack(){
                 iconName = focused
                   ? 'map'
                   : 'map-outline';
-              } else if (route.name === 'Discover') {
-                iconName = focused ? 'compass' : 'compass-outline';
-              } else if(route.name == "What's On"){
-                iconName = focused ? 'calendar' : 'calendar-outline'
-              }else if(route.name == "More"){
-                iconName = focused ? 'md-help-circle' : 'md-help-circle-outline'
+              } else if (route.name === 'List') {
+                iconName = focused ? 'list-circle' : 'list-circle-outline';
               }
   
 
@@ -45,7 +41,7 @@ export default function MainNavigationStack(){
           <Tab.Screen name="Map">
             {(props) => <MapStackScreen {...props} /> }
           </Tab.Screen>
-          <Tab.Screen name="Discover">
+          <Tab.Screen name="List">
           {(props) => <DiscoverStackScreen {...props} /> }
           </Tab.Screen>
         </Tab.Navigator>
