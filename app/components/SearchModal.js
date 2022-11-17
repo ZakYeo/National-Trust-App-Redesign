@@ -16,8 +16,6 @@ import constants from '../config/constants';
 function SearchModal({modalVisible, setModalVisible, setData, data}) {
     const [text, onChangeText] = React.useState("");
 
-    React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
-
     let empty = "";
     return (
         <Modal

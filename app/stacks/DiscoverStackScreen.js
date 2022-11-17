@@ -19,10 +19,7 @@ function DiscoverStackScreen() {
   const DiscoverStack = createNativeStackNavigator();
 
   const [data, setData] = useState(Object.values(localData)); // This will store the location information from National Trust
-  
 
-  //React.useEffect(() => {setData(data.sort((a, b) => a.title < b.title))}, []); // Since auto text input focus relies on useEffect.
-  
   
   return (
     <DiscoverStack.Navigator>
