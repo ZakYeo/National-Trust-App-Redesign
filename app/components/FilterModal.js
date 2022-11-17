@@ -7,11 +7,16 @@ import localData from '../assets/all-places.json'
 import constants from '../config/constants';
 
 
+/**
+   * Component to represent a custom calendar
+   * @param {Boolean} modalVisible     Boolean to represent if the modal is shown or not
+   * @param {Boolean} setModalVisible  Change the value of modalVisible
+   * @param {String}  data             The list of location data from the National Trust API
+   * @param {Object}  setData          Set the value of data
+   * @return                           Returns a pressable filter icon
+   */
 function FilterModal({modalVisible, setModalVisible, setData, data}) {
 
-    React.useEffect(() => {}, []); // Since auto text input focus relies on useEffect.
-
-    let empty = "";
     return (
         <Modal
         animationType="slide"

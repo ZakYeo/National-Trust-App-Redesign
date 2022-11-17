@@ -5,7 +5,14 @@ import colours from '../config/colours';
 import localData from '../assets/all-places.json'
 import constants from '../config/constants';
 
-
+/**
+   * Component to represent a custom calendar
+   * @param {Boolean} modalVisible     Boolean to represent if the modal is shown or not
+   * @param {Boolean} setModalVisible  Change the value of modalVisible
+   * @param {String}  data             The list of location data from the National Trust API
+   * @param {Object}  setData          Set the value of data
+   * @return                           Returns a pressable filter icon
+   */
 function SearchModal({modalVisible, setModalVisible, setData, data}) {
     const [text, onChangeText] = React.useState("");
 

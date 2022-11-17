@@ -9,8 +9,7 @@ import colours from '../config/colours';
    * @param  {Object} children       The text to display on the button.
    * @link                           https://reactnative.dev/docs/linking
    * @return                         Returns the custom button
-   */
-// 
+   */ 
 function OpenURLButton({ url, children }){
     const handlePress = useCallback(async () => {
       // Checking if the link is supported for links with custom URL scheme.

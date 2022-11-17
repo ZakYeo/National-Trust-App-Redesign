@@ -5,6 +5,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import FilterModal from '../components/FilterModal';
 
+/**
+   * Component to represent a custom calendar
+   * @param  {String} data      The list of location data from the National Trust API
+   * @param {Object}  setData   Set the value of data
+   * @return                    Returns a pressable filter icon
+   */
 function FilterButton({data, setData}){
     
   const [modalVisible, setModalVisible] = useState(false);
