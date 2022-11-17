@@ -10,10 +10,9 @@ import colours from '../config/colours';
    * Press an item to view the details screen of that location.
    * @param  {Object} navigation  Used to navigate between screens.
    * @param  {String} data        The National Trust API's location data [State Variable].
-   * @param  {String} setData     Set the National Trust API's location data [State Variable].
    * @return                      Returns a flat list rendered with the supplied data      
    */
-export default function DiscoverScreen( {navigation, data, setData} ) {
+export default function DiscoverScreen( {navigation, data} ) {
 
     return (
         <SafeAreaView style={styles.container}>

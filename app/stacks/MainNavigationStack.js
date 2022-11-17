@@ -10,8 +10,6 @@ import constants from '../config/constants.js';
 
 /**
    * Handles the Bottom Tab Navigation. Includes "Map" and "Discover" options
-   * @param  {String} data        The National Trust API's location data [State Variable].
-   * @param  {String} setData     Set the National Trust API's location data [State Variable].
    * @return                      Returns a Tab.Navigator component     
    */
 export default function MainNavigationStack(){

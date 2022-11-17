@@ -12,8 +12,6 @@ import constants from '../config/constants';
 
 /**
    * Native Stack to handle the navigation on the "Discover" Screen
-   * @param  {String} data        The National Trust API's location data [State Variable].
-   * @param  {String} setData     Set the National Trust API's location data [State Variable].
    * @return                      Returns a DiscoverStack.Navigator component     
    */
 function DiscoverStackScreen() {

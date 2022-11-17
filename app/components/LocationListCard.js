@@ -7,8 +7,10 @@ import colours from '../config/colours';
    * Pressable Component to represent an individual location card held inside a flat list.
    * Contains summarised information about a specific location including:
    * Title, location, description & tags.
-   * @param  {String} location   The specific location from the National Trust API
-   * @return                     Returns a view displaying relevant information
+   * @param  {Object} item        The specific location from the National Trust API
+   * @param {Object}  navigation  Used to navigate between screens.
+   * @param {String}  screenName  The name of the screen to navigate to
+   * @return                      Returns a view displaying relevant information
    */
 function LocationListCard({ item, navigation, screenName }){
   const Line = ({color}) => {
