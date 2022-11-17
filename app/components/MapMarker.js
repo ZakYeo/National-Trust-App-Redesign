@@ -31,28 +31,13 @@ export default function MapMarker({location, deviceLocation, navigation}) {
             <MapView.Callout onPress={_ => {
                     navigation.navigate("MapDetails", {item: location});
                 }}>
-                <View style={{flex: 1, flexDirection: 'row', minHeight: 75}}>
-                  <View>
-                    <View style={{
-                      width: 75,
-                      height: 75,
-                      borderRadius: 100,
-                      backgroundColor: "black",
-                      paddingRight: 10
-                    }} />
-                    <Text style={[styles.distance, styles.subTitle]}>{deviceLocation ?
+                <View style={{flex: 1, minHeight: 75, borderTopWidth: 5, borderColor: "green"}}>
+                  <View style={{maxWidth: 300, marginLeft: 5}}>
+                    <Text numberOfLines={1} style={styles.title}>{location.title}</Text>
+                    <Text style={styles.subTitle}>{location.subTitle}, {deviceLocation ?
                       Math.round(getDistance(deviceLocation.coords, location.location) / constants.metres_to_miles) + " miles"
                       : ""}</Text>
-                  </View>
-                  <View style={{maxWidth: 240, marginLeft: 5}}>
 
-                    <Text numberOfLines={1} style={styles.title}>{location.title}</Text>
-                    <Text style={styles.subTitle}>{location.subTitle}</Text>
-                    <View style={{
-                      width: 75,
-                      height: 5,
-                      backgroundColor: "green",
-                    }} />
                     <Text numberOfLines={2} style={styles.description}>{location.description}</Text>
                   </View>
                 </View>
