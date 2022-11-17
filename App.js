@@ -16,25 +16,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-//TODO
-
-// KNOWN ISSUES:
-// - Display image in custom callout
-// - Filters & Search not functioning properly (useState with data)
-
-
-//TODO
-// - Use State for map and discover (separate)
-// - Fix search
-// - Fix filters
-// - Add sort by
-// - Search on the map?
-// - MapScreen.js -> change initial region
-
-// TO FINISH:
-// - Check on another device (seems fine)
-// - Add more event dummy data (?)
-// - Polygon bound by geojson data on Details screen from API
-// - Comments up to standards! ES6?
-// - Use constants.js
