@@ -54,7 +54,7 @@ function LocationDetailsCard({ location }) {
           </Text>
           </View>
         </View>
-        <View style={styles.greenLine} />
+        <View style={styles.blueLine} />
         <Text style={styles.description}>{ location.description }</Text>
         <View style={styles.blueLine} />
         <Map data={Object.values({"1": location})} initialRegion={{
@@ -119,11 +119,6 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       fontSize: 18,
       fontWeight: '450'
-    },
-    greenLine: {
-        width: 75,
-        height: 5,
-        backgroundColor: "green",
     },
     blueLine: {
       width: '100%',

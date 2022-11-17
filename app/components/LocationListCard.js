@@ -25,7 +25,6 @@ function LocationListCard({ item, navigation, screenName }){
             <Image style={{width: '100%', height: 150}} source={{ uri: item.imageUrl }} />
         </View>
         <View style={{flex: 1, paddingTop: 10, paddingLeft: 10, paddingRight: 10}}>
-        <Line color="green"/>
             <Text numberOfLines={1} style={styles.title}>{item.title}</Text>
             <Text style={styles.subTitle}>{item.subTitle}</Text>
             <Text style={styles.description}>{item.description}</Text>
