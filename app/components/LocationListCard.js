@@ -13,9 +13,7 @@ import colours from '../config/colours';
    * @return                      Returns a view displaying relevant information
    */
 function LocationListCard({ item, navigation, screenName }){
-  const Line = ({color}) => {
-    return <View style={[styles.square, {backgroundColor: color}]} />;
-  };
+
   return (
       <View style={styles.item}>
          <Pressable onPress={() => {
