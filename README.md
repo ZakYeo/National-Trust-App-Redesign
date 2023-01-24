@@ -1,5 +1,5 @@
 # National Trust Redesign App
-A complete redesign prototype for the currently existing National Trust. This app was written in React Native using expo-go and uses data from the National Trust to pull location and event data and display it in the app.
+A complete redesign prototype for the currently existing National Trust. This app was written in React Native using expo-go and uses data from the National Trust to pull location and event data and display it in the app. This was a piece of coursework for a final year unit at my University.
 
 The redesigned app uses a simplified design to reduce clutter and improve usability. The app uses bottom-tab navigation with two options: Map view and list view. The map view displays a map with marked National Trust locations that are clickable. The list view gives a scrollable list of locations that can be clicked for more details. Both screens have the ability to search & filter using the buttons in the top-right.
 
