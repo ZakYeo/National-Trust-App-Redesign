@@ -1,16 +1,35 @@
-# National Trust Redesign App
-A complete redesign prototype for the currently existing National Trust. This app was written in React Native using expo-go and uses data from the National Trust to pull location and event data and display it in the app. This was a piece of coursework for a final year unit at my University.
+# National Trust Redesign: A New Face for National Trust
 
-The redesigned app uses a simplified design to reduce clutter and improve usability. The app uses bottom-tab navigation with two options: Map view and list view. The map view displays a map with marked National Trust locations that are clickable. The list view gives a scrollable list of locations that can be clicked for more details. Both screens have the ability to search & filter using the buttons in the top-right.
+Welcome to the National Trust Redesign App, a prototype built with a refined touch to enhance user interaction and overall experience with the National Trust. This application, built using React Native with expo-go, utilizes data from the National Trust to present location and event information within the app interface. This project served as a piece of coursework for a final year unit at my university.
 
-A more detailed document overview can be read in the report I produced alongside the app (see repository root directory).
+## Overview
 
-## How To Run
- - Pull the repository into a local directory
- - Install npm dependencies via `npm i` command
- - Start the app using `npm expo start`
- - Run the app using the expo-go app on your mobile device, or run it through an emulator (Untested on iOS, Android is preferred)
- 
+The redesigned app focuses on simplicity to minimize clutter and boost usability. Key features of the app include:
+
+- **Bottom-Tab Navigation**: Easy navigation through the app is facilitated with two primary views—Map View and List View.
+
+- **Map View**: Here, users can find marked National Trust locations on a map. Each marked location is clickable for further details.
+
+- **List View**: This presents a scrollable list of locations. Each location can be clicked for more information.
+
+- **Search & Filter**: Both views incorporate search and filter functionalities, accessible via the buttons in the top-right corner of the interface, to provide a customized user experience.
+
+For a more in-depth overview of the app, please refer to the comprehensive report provided in the repository root directory.
+
+## Running the App
+
+To get the National Trust Redesign app up and running on your local machine, follow the steps below:
+
+1. **Clone the Repository**: Clone this repository into a local directory on your computer.
+
+2. **Install Dependencies**: Navigate to the cloned directory and install necessary npm dependencies by running the `npm i` command.
+
+3. **Start the App**: Initiate the app using the `npm expo start` command.
+
+4. **Run the App**: Execute the app using the expo-go app on your mobile device or via an emulator. Please note that the app has been primarily tested on Android devices, and iOS compatibility might be limited.
+
+That's all! Now you can explore the new face of National Trust, right on your mobile device. Enjoy your virtual tour!
+
 ## Redesign Screenshots
 The following are screenshots taken from the NT app I redesigned and remade. <br>
 <img
